@@ -4,6 +4,7 @@ from flask_heroku import Heroku
 
 app = Flask(__name__)
 heroku = Heroku(app)
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 db = SQLAlchemy(app)
 
 class Blogpost(db.Model):
