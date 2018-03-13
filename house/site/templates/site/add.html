@@ -1,0 +1,65 @@
+{% extends "site/base.html" %}
+{% block header %}
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('{{url_for('static', filename='img/contact-bg.jpg')}}')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="page-heading">
+              <h1>Agregar Post</h1>
+              <span class="subheading">Podemos crear un post acá.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+{% endblock %}
+
+{% block content%}
+    <!-- Main Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <form name="addForm" id="addForm" method="POST" action="{{url_for('site.addpost')}}" novalidate>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+                <label>Título</label>
+                <input type="text" class="form-control" placeholder="Título" id="titulo" name="titulo" required data-validation-required-message="Título.">
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+                <label>Subtitulo</label>
+                <input type="text" class="form-control" placeholder="Subtítulo" name="subtitulo" id="subtitulo" required data-validation-required-message="Subtítulo.">
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group col-xs-12 floating-label-form-group controls">
+                <label>Autor</label>
+                <input type="text" class="form-control" placeholder="Autor" id="autor" name="autor" required data-validation-required-message="Please enter your phone number.">
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+                <label>Contenido</label>
+                <textarea rows="5" class="form-control" placeholder="Contenido" id="contenido" name="contenido" required data-validation-required-message="Please enter a message."></textarea>
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <br>
+            <div id="success"></div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary" id="sendMessageButton">Publicar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <hr>
+{% endblock %}
+    <!-- Footer -->
+    {% block footer %} {% include "site/ads/_footer.html"%}{% endblock %}
